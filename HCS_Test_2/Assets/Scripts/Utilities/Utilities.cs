@@ -28,7 +28,7 @@ namespace Utilities
     {
         public static T Instance { get; private set; }
 
-        private void Awake()
+        public virtual void Awake()
         {
             if (Instance == null)
             {
@@ -42,6 +42,16 @@ namespace Utilities
         }
     }
 
+}
+
+public enum GraphicsQuality
+{
+    VERYLOW,
+    LOW,
+    MEDIUM,
+    HIGH,
+    VERYHIGH,
+    ULTRA
 }
 
 

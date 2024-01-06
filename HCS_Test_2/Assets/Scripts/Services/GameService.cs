@@ -11,11 +11,18 @@ public class GameService : GenericSingleton<GameService>
     #endregion
 
     #region Services
-    public UIService UIservice { get; set; }
+    public MainMenuUIService mainMenuUIService { get; set; }
     #endregion
 
-    #region Config
 
-    #endregion
+    public override void Awake()
+    {
+        base.Awake();
+        Init();
+    }
 
+    public void Init()
+    {
+       
+    }
 }
