@@ -16,11 +16,13 @@ public class MainMenuUIService : MonoBehaviour
     private void OnEnable()
     {
         eventServiceSO.OnClickBackFromSettings.AddListener(ShowPanel);
+        eventServiceSO.OnClickSettingsButton.AddListener(ShowPanel);
     }
 
     private void OnDisable()
     {
         eventServiceSO.OnClickBackFromSettings.RemoveListener(ShowPanel);
+        eventServiceSO.OnClickSettingsButton.RemoveListener(ShowPanel);
     }
 
     public void ShowPanel(PanelType panelTypeToShow)
@@ -30,12 +32,29 @@ public class MainMenuUIService : MonoBehaviour
             Debug.LogError("No panel is added to the panels list!!");
             return;
         }
-           
+        
+       
         Panel panelToShow = mainMenuScenePanels.Find(panel => panel.panelType == panelTypeToShow);
-        panelToShow.Show();
+
+        if(panelToShow != null)
+          panelToShow.Show();
 
     }
 
+    public void HidePanel(PanelType panelTypeToShow)
+    {
+        if (mainMenuScenePanels.Count == 0)
+        {
+            Debug.LogError("No panel is added to the panels list!!");
+            return;
+        }
+
+        Panel panelToShow = mainMenuScenePanels.Find(panel => panel.panelType == panelTypeToShow);
+
+        if (panelToShow != null)
+            panelToShow.Hide();
+
+    }
 
 
 }

@@ -3,8 +3,18 @@ using UnityEngine;
 public abstract class Panel : MonoBehaviour
 {
     public PanelType panelType;
+    protected Animator animator;
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     public virtual void Show() => this.gameObject.SetActive(true);
-    public virtual void Hide() => this.gameObject.SetActive(false);
+    public virtual void Hide()
+    {
+        animator.SetTrigger("Close");
+        this.gameObject.SetActive(false);
+    }
 
 }
 
