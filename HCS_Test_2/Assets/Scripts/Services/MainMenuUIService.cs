@@ -13,6 +13,13 @@ public class MainMenuUIService : MonoBehaviour
     [SerializeField] EventServiceSO eventServiceSO;
 
 
+    private Stack<Panel> activePanelsStack = new Stack<Panel>();
+
+    private void Awake()
+    {
+        activePanelsStack.Push(mainMenuScenePanels.Find(panel => panel.panelType == PanelType.MainMenu));
+    }
+
     private void OnEnable()
     {
         eventServiceSO.OnClickBackFromSettings.AddListener(ShowPanel);
@@ -24,6 +31,7 @@ public class MainMenuUIService : MonoBehaviour
         eventServiceSO.OnClickBackFromSettings.RemoveListener(ShowPanel);
         eventServiceSO.OnClickSettingsButton.RemoveListener(ShowPanel);
     }
+    
 
     public void ShowPanel(PanelType panelTypeToShow)
     {
@@ -32,28 +40,27 @@ public class MainMenuUIService : MonoBehaviour
             Debug.LogError("No panel is added to the panels list!!");
             return;
         }
-        
+
+        HideActivePanel();
        
         Panel panelToShow = mainMenuScenePanels.Find(panel => panel.panelType == panelTypeToShow);
 
         if(panelToShow != null)
           panelToShow.Show();
 
+        activePanelsStack.Push(panelToShow);
     }
 
-    public void HidePanel(PanelType panelTypeToShow)
+    public void HideActivePanel()
     {
-        if (mainMenuScenePanels.Count == 0)
-        {
-            Debug.LogError("No panel is added to the panels list!!");
+        if (activePanelsStack.Count == 0)
             return;
+
+        Panel activepanel = activePanelsStack.Pop();
+        if (activepanel != null)
+        {
+            activepanel.Hide();
         }
-
-        Panel panelToShow = mainMenuScenePanels.Find(panel => panel.panelType == panelTypeToShow);
-
-        if (panelToShow != null)
-            panelToShow.Hide();
-
     }
 
 
