@@ -22,19 +22,19 @@ public class SoundService : GenericSingleton<SoundService>
     public void SetSFXVolume(float volume)
     {
         gameDataSO.sfxVolume = volume;
-        audioMixer.SetFloat("SFXVolume", volume);
+        audioMixer.SetFloat(Constants.SFXVolume, volume);
     }
 
     public void SetMusicVolume(float volume)
     {
         gameDataSO.musicVolume = volume;
-        audioMixer.SetFloat("MusicVolume", volume);
+        audioMixer.SetFloat(Constants.MusicVolume, volume);
     }
 
     public void SetMasterVolume(float volume)
     {
         gameDataSO.masterVolume = volume;
-        audioMixer.SetFloat("MasterVolume", volume);
+        audioMixer.SetFloat(Constants.MasterVolume, volume);
     }
 
     public void PlaySFX(SoundType soundType)

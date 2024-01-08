@@ -14,12 +14,14 @@ public class MainMenuUIService : UIService
     {
         eventServiceSO.OnClickBackFromSettings.AddListener(ShowPanel);
         eventServiceSO.OnClickSettingsButton.AddListener(ShowPanel);
+        eventServiceSO.OnClickPlayButton.AddListener(ShowPanel);
     }
 
     private void OnDisable()
     {
         eventServiceSO.OnClickBackFromSettings.RemoveListener(ShowPanel);
         eventServiceSO.OnClickSettingsButton.RemoveListener(ShowPanel);
+        eventServiceSO.OnClickPlayButton.RemoveListener(ShowPanel);
     }
     
 }

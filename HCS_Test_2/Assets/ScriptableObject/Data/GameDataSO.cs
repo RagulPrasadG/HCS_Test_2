@@ -16,3 +16,18 @@ public class GameDataSO : ScriptableObject
     public Shadows shadows;
 }
 
+public enum Shadows
+{
+    ON,
+    OFF
+}
+
+public enum GraphicsQuality
+{
+    VERYLOW,
+    LOW,
+    MEDIUM,
+    HIGH,
+    VERYHIGH,
+    ULTRA
+}

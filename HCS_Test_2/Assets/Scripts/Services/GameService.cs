@@ -7,20 +7,25 @@ using UnityEngine.SceneManagement;
 public class GameService : GenericSingleton<GameService>
 {
     [SerializeField] GameDataSO gameDataSO;
+    [SerializeField] EventServiceSO eventServiceSO;
+
     public UIService UIservice { get; set; }
 
     public override void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(this.gameObject);
-        Init();
+        SetEvents();
     }
 
-    public void Init()
+    public void SetEvents()
     {
         SceneManager.sceneLoaded += OnSceneChanged;
+        eventServiceSO.OnClickPauseButton.AddListener(delegate { ToggleGamePause(true); });
+        eventServiceSO.OnClickLevelSlotButton.AddListener(LoadLevel);
     }
 
+    //gets reference for the active UI handler of the current scene
     public void OnSceneChanged(Scene scene,LoadSceneMode loadSceneMode)
     {
         UIservice = FindAnyObjectByType<UIService>();
@@ -32,6 +37,8 @@ public class GameService : GenericSingleton<GameService>
         QualitySettings.SetQualityLevel(value);
     }
 
-   
+    public void LoadLevel(LevelType levelType) => SceneManager.LoadScene(nameof(levelType));
+
+    public void ToggleGamePause(bool toggle) => Time.timeScale = toggle ? 0 : 1;
 
 }

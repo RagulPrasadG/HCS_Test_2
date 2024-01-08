@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// This is the base class for all UI handlers in every scene
+/// </summary>
 public abstract class UIService : MonoBehaviour
 {
     public List<Panel> scenePanels;

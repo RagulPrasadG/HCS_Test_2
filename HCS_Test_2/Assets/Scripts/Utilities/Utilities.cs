@@ -44,27 +44,19 @@ namespace Utilities
 
 }
 
+public struct Constants
+{
+    public const string SFXVolume = "SFXVolume";
+    public const string MasterVolume = "MasterVolume";
+    public const string MusicVolume = "MusicVolume";
+}
+
 public enum SoundType
 {
     BUTTONCLICK
 }
 
 
-public enum Shadows
-{
-    ON,
-    OFF
-}
 
-
-public enum GraphicsQuality
-{
-    VERYLOW,
-    LOW,
-    MEDIUM,
-    HIGH,
-    VERYHIGH,
-    ULTRA
-}
 
 
