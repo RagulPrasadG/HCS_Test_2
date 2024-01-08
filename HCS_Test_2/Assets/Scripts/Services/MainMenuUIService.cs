@@ -5,33 +5,37 @@ using UnityEngine.UI;
 
 public class MainMenuUIService : MonoBehaviour
 {
+    [Header("PANELS")]
+    [SerializeField] List<Panel> mainMenuScenePanels;
 
-    [Header("MainMenuPanels")]
-    
-
+    [Space(10)]
     [SerializeField] Canvas mainMenuCanvas;
-    [SerializeField] UIDataSO UIDataSO;
+    [SerializeField] EventServiceSO eventServiceSO;
 
 
-    private List<Panel> panelInstances;
-
-
-    public void ShowPanel(PanelType panelType)
+    private void OnEnable()
     {
-        Panel panel = panelInstances.Find(panel => panel.panelType == panelType);
-        if (panel == null)
-            CreatePanel(panelType);
-        else
-            panel.Show();
+        eventServiceSO.OnClickBackFromSettings.AddListener(ShowPanel);
+    }
+
+    private void OnDisable()
+    {
+        eventServiceSO.OnClickBackFromSettings.RemoveListener(ShowPanel);
+    }
+
+    public void ShowPanel(PanelType panelTypeToShow)
+    {
+        if (mainMenuScenePanels.Count == 0)
+        {
+            Debug.LogError("No panel is added to the panels list!!");
+            return;
+        }
            
+        Panel panelToShow = mainMenuScenePanels.Find(panel => panel.panelType == panelTypeToShow);
+        panelToShow.Show();
+
     }
 
-    public void CreatePanel(PanelType panelType)
-    {
-        Panel panel = UIDataSO.panelPrefabs.Find(panel => panel.panelType == panelType);
-        var panelInstance = Object.Instantiate(panel, mainMenuCanvas.transform);
-        panelInstances.Add(panelInstance);
-        panelInstance.Show();
-    }
+
 
 }

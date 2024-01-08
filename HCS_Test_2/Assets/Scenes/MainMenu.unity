@@ -1731,7 +1731,9 @@ MonoBehaviour:
   sfxSlider: {fileID: 1564620743}
   graphicsQualityDropDown: {fileID: 2123807176}
   shadowsDropDown: {fileID: 1572639024}
+  backButton: {fileID: 521888628}
   gameDataSO: {fileID: 11400000, guid: a2c5103b1a79ac84698fae34e2bf48d3, type: 2}
+  eventServiceSO: {fileID: 11400000, guid: 4a0e5720f95e9a14ea2bce7a280ef705, type: 2}
 --- !u!1 &760936138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,8 +2579,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5a4aced42a8114899ba5a40ef255c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuScenePanels:
+  - {fileID: 2126882832}
+  - {fileID: 710047035}
   mainMenuCanvas: {fileID: 1104760555}
-  UIDataSO: {fileID: 11400000, guid: dca7810e087f8054d93c7f38bdbc7538, type: 2}
+  eventServiceSO: {fileID: 11400000, guid: 4a0e5720f95e9a14ea2bce7a280ef705, type: 2}
 --- !u!4 &1083465267
 Transform:
   m_ObjectHideFlags: 0
@@ -5851,6 +5856,7 @@ GameObject:
   - component: {fileID: 2126882828}
   - component: {fileID: 2126882830}
   - component: {fileID: 2126882831}
+  - component: {fileID: 2126882832}
   m_Layer: 5
   m_Name: MainMenuPanel
   m_TagString: Untagged
@@ -5911,3 +5917,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2126882832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126882827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ec243977cc1f9418a16a82c668c837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelType: 0
