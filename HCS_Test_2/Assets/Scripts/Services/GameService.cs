@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Utilities;
 using UnityEngine;
 
-
 public class GameService : GenericSingleton<GameService>
 {
     #region Data
@@ -18,6 +17,7 @@ public class GameService : GenericSingleton<GameService>
     public override void Awake()
     {
         base.Awake();
+        DontDestroyOnLoad(this.gameObject);
         Init();
     }
 

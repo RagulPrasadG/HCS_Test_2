@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuUIService : MonoBehaviour
 {
+
+    [Header("MainMenuPanels")]
+    
+
     [SerializeField] Canvas mainMenuCanvas;
     [SerializeField] UIDataSO UIDataSO;
 
 
     private List<Panel> panelInstances;
-   
+
+
     public void ShowPanel(PanelType panelType)
     {
         Panel panel = panelInstances.Find(panel => panel.panelType == panelType);
@@ -28,5 +34,4 @@ public class MainMenuUIService : MonoBehaviour
         panelInstance.Show();
     }
 
-  
 }

@@ -44,6 +44,13 @@ namespace Utilities
 
 }
 
+public enum Shadows
+{
+    ON,
+    OFF
+}
+
+
 public enum GraphicsQuality
 {
     VERYLOW,

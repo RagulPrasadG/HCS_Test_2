@@ -7,8 +7,8 @@ public class GameDataSO : ScriptableObject
 {
     [Header("[GAME CONFIG]")]
     public float sfxVolume;
-    public float bgmVolume;
+    public float musicVolume;
     public GraphicsQuality graphicsQuality;
-
+    public Shadows shadows;
 }
 
