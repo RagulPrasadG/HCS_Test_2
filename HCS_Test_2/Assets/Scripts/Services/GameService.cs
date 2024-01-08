@@ -37,7 +37,7 @@ public class GameService : GenericSingleton<GameService>
         QualitySettings.SetQualityLevel(value);
     }
 
-    public void LoadLevel(LevelType levelType) => SceneManager.LoadScene(nameof(levelType));
+    public void LoadLevel(string levelName) => SceneManager.LoadScene(levelName);
 
     public void ToggleGamePause(bool toggle) => Time.timeScale = toggle ? 0 : 1;
 

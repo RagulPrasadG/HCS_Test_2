@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LevelSlotButtonVIew : MonoBehaviour
 {
-    [SerializeField] LevelType levelType;
+    [SerializeField] string levelName;
     [SerializeField] Image levelSlotImage;
     [SerializeField] Button levelSlotButton;
 
@@ -22,9 +22,9 @@ public class LevelSlotButtonVIew : MonoBehaviour
     public void Init(LevelData levelData)
     {
         levelSlotImage.sprite = levelData.sceneThumbnail;
-        levelType = levelData.levelType;
+        levelName = levelData.levelName;
     }
 
-    private void OnClickLevelSlotButton() => eventServiceSO.OnClickLevelSlotButton.RaiseEvent(levelType);
+    private void OnClickLevelSlotButton() => eventServiceSO.OnClickLevelSlotButton.RaiseEvent(levelName);
 
 }

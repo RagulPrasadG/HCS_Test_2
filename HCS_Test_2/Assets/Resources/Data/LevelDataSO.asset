@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LevelDataSO
   m_EditorClassIdentifier: 
   levelDataList:
-  - levelType: 0
+  - levelName: Town
     sceneThumbnail: {fileID: 21300000, guid: 5a065a72fae6c084f90d37c454473b75, type: 3}
