@@ -15,7 +15,8 @@ public class EventServiceSO : ScriptableObject
     public GenericEventController<PanelType> OnClickSettingsButton = new GenericEventController<PanelType>();
     public VoidEventController OnClickExitButton = new VoidEventController();
     #endregion
-     
+    
+
 }
 
 

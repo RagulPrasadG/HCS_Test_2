@@ -9,8 +9,10 @@ public class MainMenuPanel : Panel
     [SerializeField] Button settingsButton;
     [SerializeField] Button exitButton;
 
-    [SerializeField] EventServiceSO eventServiceSO;
+    
 
+    [SerializeField] EventServiceSO eventServiceSO;
+    [SerializeField] SoundDataSO soundServiceSO;
     private void OnEnable()
     {
         playButton.onClick.AddListener(OnClickPlayButton);
@@ -26,9 +28,22 @@ public class MainMenuPanel : Panel
         exitButton.onClick.RemoveListener(OnClickExitButton);
     }
 
+    private void OnClickPlayButton()
+    {
+        SoundService.Instance.PlaySFX(SoundType.BUTTONCLICK);
+        eventServiceSO.OnClickPlayButton.RaiseEvent(PanelType.LevelSelection);
+    }
 
-    private void OnClickPlayButton() => eventServiceSO.OnClickPlayButton.RaiseEvent(PanelType.LevelSelection);
-    private void OnClickSettingsButton() => eventServiceSO.OnClickSettingsButton.RaiseEvent(PanelType.Settings);
-    private void OnClickExitButton() => eventServiceSO.OnClickExitButton.RaiseEvent();
+    private void OnClickSettingsButton()
+    {
+        SoundService.Instance.PlaySFX(SoundType.BUTTONCLICK);
+        eventServiceSO.OnClickSettingsButton.RaiseEvent(PanelType.Settings);
+    }
+
+    private void OnClickExitButton()
+    {
+        SoundService.Instance.PlaySFX(SoundType.BUTTONCLICK);
+        eventServiceSO.OnClickExitButton.RaiseEvent();
+    }
 
 }

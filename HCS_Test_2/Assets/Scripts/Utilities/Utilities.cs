@@ -44,6 +44,12 @@ namespace Utilities
 
 }
 
+public enum SoundType
+{
+    BUTTONCLICK
+}
+
+
 public enum Shadows
 {
     ON,

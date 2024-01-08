@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Utilities;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameService : GenericSingleton<GameService>
 {
-    #region Data
     [SerializeField] GameDataSO gameDataSO;
-    #endregion
-
-    #region Services
-    public MainMenuUIService mainMenuUIService { get; set; }
-    #endregion
-
+    public UIService UIservice { get; set; }
 
     public override void Awake()
     {
@@ -23,6 +18,20 @@ public class GameService : GenericSingleton<GameService>
 
     public void Init()
     {
-       
+        SceneManager.sceneLoaded += OnSceneChanged;
     }
+
+    public void OnSceneChanged(Scene scene,LoadSceneMode loadSceneMode)
+    {
+        UIservice = FindAnyObjectByType<UIService>();
+    }
+
+    public void ChangeGraphicsQuality(int value)
+    {
+        gameDataSO.graphicsQuality = (GraphicsQuality)value;
+        QualitySettings.SetQualityLevel(value);
+    }
+
+   
+
 }

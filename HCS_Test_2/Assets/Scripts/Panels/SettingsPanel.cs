@@ -15,6 +15,7 @@ public class SettingsPanel : Panel
     [SerializeField] GameDataSO gameDataSO;
     [SerializeField] EventServiceSO eventServiceSO;
 
+
     private void OnEnable()
     {
         musicSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
@@ -34,16 +35,17 @@ public class SettingsPanel : Panel
     }
 
 
-    public void OnMusicVolumeChanged(float value) => gameDataSO.musicVolume = value;
+    public void OnMusicVolumeChanged(float value) => SoundService.Instance.SetMusicVolume(value);
 
-    public void OnSFXVolumeChanged(float value) => gameDataSO.sfxVolume = value;
+    public void OnSFXVolumeChanged(float value) => SoundService.Instance.SetSFXVolume(value);
 
-    public void OnGraphicsQualityChanged(int value) => gameDataSO.graphicsQuality = (GraphicsQuality)value;
+    public void OnGraphicsQualityChanged(int value) => GameService.Instance.ChangeGraphicsQuality(value);
 
     public void OnToggleShadows(int value) => gameDataSO.shadows = (Shadows)value;
 
     public void OnBackButtonClicked()
     {
+        SoundService.Instance.PlaySFX(SoundType.BUTTONCLICK);
         eventServiceSO.OnClickBackFromSettings.RaiseEvent(PanelType.MainMenu);
         this.Hide();
     }

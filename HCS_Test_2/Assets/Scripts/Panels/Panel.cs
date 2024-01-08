@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public abstract class Panel : MonoBehaviour
 {
     public PanelType panelType;
     protected Animator animator;
+
 
     private void Awake()
     {
