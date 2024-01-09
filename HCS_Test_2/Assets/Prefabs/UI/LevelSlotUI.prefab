@@ -284,7 +284,7 @@ RectTransform:
   m_GameObject: {fileID: 8450594079799307558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9488751, y: 0.9488751, z: 0.9488751}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 0.9488751}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8450594078588773270}
@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e56e5eaa488ab94e91dd98946c06985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelType: 0
+  levelName: 
   levelSlotImage: {fileID: 8450594078588773268}
   levelSlotButton: {fileID: 8450594078588773271}
   eventServiceSO: {fileID: 11400000, guid: 4a0e5720f95e9a14ea2bce7a280ef705, type: 2}
