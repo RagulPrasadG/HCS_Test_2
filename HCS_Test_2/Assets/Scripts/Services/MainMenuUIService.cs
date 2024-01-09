@@ -15,6 +15,7 @@ public class MainMenuUIService : UIService
         eventServiceSO.OnClickBackFromSettings.AddListener(ShowPanel);
         eventServiceSO.OnClickSettingsButton.AddListener(ShowPanel);
         eventServiceSO.OnClickPlayButton.AddListener(ShowPanel);
+        eventServiceSO.OnClickBackFromLevelSelection.AddListener(ShowPanel);
     }
 
     private void OnDisable()
@@ -22,6 +23,7 @@ public class MainMenuUIService : UIService
         eventServiceSO.OnClickBackFromSettings.RemoveListener(ShowPanel);
         eventServiceSO.OnClickSettingsButton.RemoveListener(ShowPanel);
         eventServiceSO.OnClickPlayButton.RemoveListener(ShowPanel);
+        eventServiceSO.OnClickBackFromLevelSelection.RemoveListener(ShowPanel);
     }
     
 }

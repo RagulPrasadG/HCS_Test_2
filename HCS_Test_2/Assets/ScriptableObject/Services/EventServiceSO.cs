@@ -18,6 +18,9 @@ public class EventServiceSO : ScriptableObject
     [Header("GameplayEvents")]
     public VoidEventController OnClickPauseButton = new VoidEventController();
     public GenericEventController<string> OnClickLevelSlotButton = new GenericEventController<string>();
+
+    [Header("LevelSelectionPanelEvents")]
+    public GenericEventController<PanelType> OnClickBackFromLevelSelection = new GenericEventController<PanelType>();
     #endregion
 
 

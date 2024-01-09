@@ -16,6 +16,7 @@ public class GameService : GenericSingleton<GameService>
         base.Awake();
         DontDestroyOnLoad(this.gameObject);
         SetEvents();
+        SetGameConfig();
     }
 
     public void SetEvents()
@@ -35,6 +36,12 @@ public class GameService : GenericSingleton<GameService>
     {
         gameDataSO.graphicsQuality = (GraphicsQuality)value;
         QualitySettings.SetQualityLevel(value);
+    }
+
+    public void SetGameConfig()
+    {
+        SoundService.Instance.SetMusicVolume(20);
+        SoundService.Instance.SetSFXVolume(20);
     }
 
     public void LoadLevel(string levelName) => SceneManager.LoadScene(levelName);
