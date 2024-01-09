@@ -19,6 +19,8 @@ public class SoundService : GenericSingleton<SoundService>
         DontDestroyOnLoad(this.gameObject);
     }
 
+ 
+
     public void SetSFXVolume(float volume)
     {
         gameDataSO.sfxVolume = volume;

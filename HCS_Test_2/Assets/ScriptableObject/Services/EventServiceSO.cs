@@ -16,7 +16,11 @@ public class EventServiceSO : ScriptableObject
     public VoidEventController OnClickExitButton = new VoidEventController();
 
     [Header("GameplayEvents")]
+    public VoidEventController OnClickMainMenuButton = new VoidEventController();
+    public VoidEventController OnClickGameOverButton = new VoidEventController();
+    public VoidEventController OnClickResumeButton = new VoidEventController();
     public VoidEventController OnClickPauseButton = new VoidEventController();
+    public VoidEventController OnClickRetryButton = new VoidEventController();
     public GenericEventController<string> OnClickLevelSlotButton = new GenericEventController<string>();
 
     [Header("LevelSelectionPanelEvents")]

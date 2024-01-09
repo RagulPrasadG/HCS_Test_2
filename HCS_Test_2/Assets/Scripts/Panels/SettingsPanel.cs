@@ -23,6 +23,7 @@ public class SettingsPanel : Panel
         graphicsQualityDropDown.onValueChanged.AddListener(OnGraphicsQualityChanged);
         shadowsDropDown.onValueChanged.AddListener(OnToggleShadows);
         backButton.onClick.AddListener(OnBackButtonClicked);
+        Init();
     }
 
     private void OnDisable()
@@ -34,6 +35,13 @@ public class SettingsPanel : Panel
         backButton.onClick.RemoveListener(OnBackButtonClicked);
     }
 
+    public void Init()
+    {
+        this.musicSlider.value = gameDataSO.musicVolume;
+        this.sfxSlider.value = gameDataSO.sfxVolume;
+        this.graphicsQualityDropDown.value = (int)gameDataSO.graphicsQuality;
+        this.shadowsDropDown.value = (int)gameDataSO.shadows;
+    }
 
     public void OnMusicVolumeChanged(float value) => SoundService.Instance.SetMusicVolume(value);
 

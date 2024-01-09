@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0a46f8bea79ee4696278eb81afa17e, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  sfxVolume: 20
-  musicVolume: 20
-  masterVolume: 20
+  sfxVolume: 8.4
+  musicVolume: 8.9
+  masterVolume: 9.1
   graphicsQuality: 1
   shadows: 0

@@ -16,15 +16,22 @@ public class GameService : GenericSingleton<GameService>
         base.Awake();
         DontDestroyOnLoad(this.gameObject);
         SetEvents();
+    }
+
+    public void Start()
+    {
         SetGameConfig();
     }
 
     public void SetEvents()
     {
         SceneManager.sceneLoaded += OnSceneChanged;
-        eventServiceSO.OnClickPauseButton.AddListener(delegate { ToggleGamePause(true); });
         eventServiceSO.OnClickLevelSlotButton.AddListener(LoadLevel);
+        eventServiceSO.OnClickMainMenuButton.AddListener(delegate { LoadLevel("MainMenu"); });
+        eventServiceSO.OnClickExitButton.AddListener(OnQuitGame);
+        eventServiceSO.OnClickRetryButton.AddListener(OnRetryGame);
     }
+
 
     //gets reference for the active UI handler of the current scene
     public void OnSceneChanged(Scene scene,LoadSceneMode loadSceneMode)
@@ -38,14 +45,20 @@ public class GameService : GenericSingleton<GameService>
         QualitySettings.SetQualityLevel(value);
     }
 
+    public void OnQuitGame() => Application.Quit();
+
+    public void OnRetryGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     public void SetGameConfig()
     {
-        SoundService.Instance.SetMusicVolume(20);
-        SoundService.Instance.SetSFXVolume(20);
+        Application.targetFrameRate = 60;
+        SoundService.Instance.SetMusicVolume(gameDataSO.musicVolume);
+        SoundService.Instance.SetSFXVolume(gameDataSO.sfxVolume);
+        ChangeGraphicsQuality((int)gameDataSO.graphicsQuality);
     }
 
     public void LoadLevel(string levelName) => SceneManager.LoadScene(levelName);
 
-    public void ToggleGamePause(bool toggle) => Time.timeScale = toggle ? 0 : 1;
+
 
 }
